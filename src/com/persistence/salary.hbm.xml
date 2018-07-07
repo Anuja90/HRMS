@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ 
+    <class name="com.persistence.salary" table="salary">
+ 
+        <id name="id" column="ID">
+            <generator class="native" />
+        </id>
+ 
+        <property name="employeeName">
+            <column name="EmployeeName" length="16" not-null="true" />
+        </property>
+ 
+        <property name="salary">
+            <column name="Salary" length="16" not-null="true" />
+        </property>
+
+ 
+    </class>
+</hibernate-mapping>
