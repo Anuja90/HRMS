@@ -17,7 +17,7 @@
 							<li class="submenu">
 								<a href="#" class="noti-dot"><span> Employees</span> <span class="menu-arrow"></span></a>
 								<ul class="list-unstyled" style="display: none;">
-									<li><a class="active" href="employees.html">All Employees</a></li>
+									<li><a href="employees.html">All Employees</a></li>
 									<li><a href="holidays.html">Holidays</a></li>
 									<li><a href="leaves.html"><span>Leave Requests</span> <span class="badge bg-primary pull-right">1</span></a></li>
 									<li><a href="attendance.html">Attendance</a></li>
@@ -34,7 +34,7 @@
 							<li class="submenu">
 								<a href="#"><span> Payroll </span> <span class="menu-arrow"></span></a>
 								<ul class="list-unstyled" style="display: none;">
-									<li><a href="salary.html"> Employee Salary </a></li>
+									<li><a href="salary.jsp"> Employee Salary </a></li>
 									<li><a href="salary-view.html"> Payslip </a></li>
 								</ul>
 							</li>
