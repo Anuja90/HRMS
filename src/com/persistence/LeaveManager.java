@@ -6,6 +6,8 @@ public class LeaveManager {
 	
 	public static void createLeave(Leave leave)
 	{
-		
+		session.save(person);
+
+		transaction.commit();
 	}
 }
