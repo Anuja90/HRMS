@@ -13,5 +13,10 @@
         <action name="showEmployee" class="com.action.showEmployeeAction">
            <result name="success">/ShowEmplyee.jsp</result>
         </action>
+        
+        <action name="createLeave" class="com.action.createLeaveAction">
+           <result name="success">/Welcome.jsp</result>
+           <result name="input">/index.jsp</result>
+        </action>
     </package>  
 </struts>

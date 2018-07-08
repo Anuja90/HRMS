@@ -1,8 +1,6 @@
 package com.persistence;
 
 public class LeaveManager {
-
-	ConnectionManager con = new ConnectionManager();
 	
 	public static void createLeave(Leave leave)
 	{
@@ -10,4 +8,5 @@ public class LeaveManager {
 		con.session.save(leave);		
 		con.transaction.commit();
 	}
+	
 }

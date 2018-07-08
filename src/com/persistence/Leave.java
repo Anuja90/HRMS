@@ -6,7 +6,6 @@ public class Leave {
 	private long id;
 	private long empId;
 	private long leaveTypeId;
-	private String leaveType;
 	private Date fromDate;
 	private Date toDate;
 	private int noOfDays;
@@ -17,13 +16,7 @@ public class Leave {
 	private Date declinedDate;
 	private String status;
 	
-	
-	private String Execute()
-	{
-		
-	
-		return "Success";
-	}
+
 
 	public long getId() {
 		return id;
@@ -32,15 +25,6 @@ public class Leave {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public String getLeaveType() {
-		return leaveType;
-	}
-
-	public void setLeaveType(String leaveType) {
-		this.leaveType = leaveType;
-	}
-
 
 	public long getEmpId() {
 		return empId;

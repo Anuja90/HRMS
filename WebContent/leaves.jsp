@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -754,35 +754,35 @@
 							<h4 class="modal-title">Add Leave Request</h4>
 						</div>
 						<div class="modal-body">
-							<form>
+							<form action = "createLeave">
 								<div class="form-group">
 									<label>Leave Type <span class="text-danger">*</span></label>
-									<select class="select">
-										<option value="">Select Leave Type</option>
-										<option value="">Casual Leave 12 Days</option>
-										<option value="">Medical Leave</option>
-										<option value="">Loss of Pay</option>
+									<select class="select" name="leaveTypeId">
+										<option value="1">Select Leave Type</option>
+										<option value="2">Casual Leave 12 Days</option>
+										<option value="3">Medical Leave</option>
+										<option value="4">Loss of Pay</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<label>From <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" type="text"></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" namd="fromDate" type="text"></div>
 								</div>
 								<div class="form-group">
 									<label>To <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" type="text"></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" name="toDate" type="text"></div>
 								</div>
 								<div class="form-group">
 									<label>Number of days <span class="text-danger">*</span></label>
-									<input class="form-control" readonly="" type="text">
+									<input class="form-control" name="noOfDays" readonly="" type="text">
 								</div>
 								<div class="form-group">
 									<label>Remaining Leaves <span class="text-danger">*</span></label>
-									<input class="form-control" readonly="" value="12" type="text">
+									<input class="form-control" name="remainingLeaves" readonly="" value="12" type="text">
 								</div>
 								<div class="form-group">
 									<label>Leave Reason <span class="text-danger">*</span></label>
-									<textarea rows="4" cols="5" class="form-control"></textarea>
+									<textarea rows="4" cols="5" name="leaveReason" class="form-control"></textarea>
 								</div>
 								<div class="m-t-20 text-center">
 									<button class="btn btn-primary">Send Leave Request</button>
