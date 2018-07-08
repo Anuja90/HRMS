@@ -1,13 +1,22 @@
 package com.persistence;
 
+import java.util.Date;
+
 public class Leave {
 	private long id;
+	private long empId;
+	private long leaveTypeId;
 	private String leaveType;
-	private String fromDate;
-	private String toDate;
+	private Date fromDate;
+	private Date toDate;
 	private int noOfDays;
 	private int remainingLeaves;
-	private String LeaveReason;
+	private String leaveReason;
+	private Date submitDate;
+	private Date approvedDate;
+	private Date declinedDate;
+	private String status;
+	
 	
 	private String Execute()
 	{
