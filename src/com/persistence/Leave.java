@@ -41,20 +41,77 @@ public class Leave {
 		this.leaveType = leaveType;
 	}
 
-	public String getFromDate() {
+
+	public long getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(long empId) {
+		this.empId = empId;
+	}
+
+	public long getLeaveTypeId() {
+		return leaveTypeId;
+	}
+
+	public void setLeaveTypeId(long leaveTypeId) {
+		this.leaveTypeId = leaveTypeId;
+	}
+
+	public Date getFromDate() {
 		return fromDate;
 	}
 
-	public void setFromDate(String fromDate) {
+	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
 
-	public String getToDate() {
+	public Date getToDate() {
 		return toDate;
 	}
 
-	public void setToDate(String toDate) {
+	public void setToDate(Date toDate) {
 		this.toDate = toDate;
+	}
+
+	public String getLeaveReason() {
+		return leaveReason;
+	}
+
+	public void setLeaveReason(String leaveReason) {
+		this.leaveReason = leaveReason;
+	}
+
+	public Date getSubmitDate() {
+		return submitDate;
+	}
+
+	public void setSubmitDate(Date submitDate) {
+		this.submitDate = submitDate;
+	}
+
+	public Date getApprovedDate() {
+		return approvedDate;
+	}
+
+	public void setApprovedDate(Date approvedDate) {
+		this.approvedDate = approvedDate;
+	}
+
+	public Date getDeclinedDate() {
+		return declinedDate;
+	}
+
+	public void setDeclinedDate(Date declinedDate) {
+		this.declinedDate = declinedDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public int getNoOfDays() {
@@ -73,12 +130,6 @@ public class Leave {
 		this.remainingLeaves = remainingLeaves;
 	}
 
-	public String getLeaveReason() {
-		return LeaveReason;
-	}
 
-	public void setLeaveReason(String leaveReason) {
-		LeaveReason = leaveReason;
-	}
 
 }
