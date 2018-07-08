@@ -7,15 +7,14 @@ import org.hibernate.cfg.Configuration;
 
 public class ConnectionManager {
 
-	public ConnectionManager() {
-		Configuration configuration = new Configuration().configure();
+	Configuration configuration = new Configuration().configure();
 
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
+	SessionFactory sessionFactory = configuration.buildSessionFactory();
 
-		Session session = sessionFactory.getCurrentSession();
+	Session session = sessionFactory.getCurrentSession();
 
-		Transaction transaction = session.beginTransaction();
-		// TODO Auto-generated constructor stub
-	}
+	Transaction transaction = session.beginTransaction();
+	
+
 	
 }
