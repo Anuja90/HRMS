@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ 
+    <class name="com.persistence.SalaryAllowance" table="tblAllowanceAllocate">
+ 
+        <id name="allow_id" column="allow_id">
+            <generator class="native" />
+        </id>
+ 
+        <property name="emp_id">
+            <column name="emp_id" length="16" not-null="true" />
+        </property>
+ 
+        <property name="allowancesName">
+            <column name="allowancesName" length="16" not-null="true" />
+        </property>
+        
+        
+         <property name="payment">
+            <column name="payment" length="16" not-null="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

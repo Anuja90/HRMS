@@ -5,20 +5,27 @@
  
 <hibernate-mapping>
  
-    <class name="com.persistence.salary" table="salary">
+    <class name="com.persistence.salary" table="tblSalary">
  
-        <id name="id" column="ID">
+        <id name="salary_id" column="salary_id">
             <generator class="native" />
         </id>
  
-        <property name="employeeName">
-            <column name="EmployeeName" length="16" not-null="true" />
+        <property name="basic_salary">
+            <column name="basic_salary" length="16" not-null="true" />
         </property>
  
-        <property name="salary">
-            <column name="Salary" length="16" not-null="true" />
+        <property name="epf_rate">
+            <column name="epf_rate" length="16" not-null="true" />
         </property>
-
- 
+        
+        <property name="welfare">
+            <column name="welfare" length="16" not-null="true" />
+        </property>
+        
+        <property name="payetax">
+            <column name="payetax" length="16" not-null="true" />
+        </property>
+        
     </class>
 </hibernate-mapping>
