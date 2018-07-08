@@ -1,1 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ 
+    <class name="com.persistence.Leave" table="tblleave">
+ 
+        <id name="id" column="leave_id">
+            <generator class="native" />
+        </id>
+ 		 <property name="empID">
+            <column name="emp_id" length="11" not-null="true" />
+        </property>
+        <property name="leaveType">
+            <column name="leaveType_id" length="11" not-null="true" />
+        </property>
+ 
+        <property name="EmpID)">
+            <column name="leaveType_id" length="11" not-null="true" />
+        </property>
+ 
+        <property name="fromDate">
+            <column name="fromDate"  not-null="true" />
+        </property>
+
+ 		<property name="toDate">
+            <column name="toDate" not-null="true" />
+        </property>
+        <property name="noOfDays">
+            <column name="numberofDate"  not-null="true" />
+        </property>
+        <property name="remainingLeaves">
+            <column name="remainingLeaves"  not-null="true" />
+        </property>
+        <property name="leaveReason">
+            <column name="LeaveReason" length="45" not-null="true" />
+        </property>
+         <property name="submitDate">
+            <column name="submitDate"  not-null="true" />
+        </property>
+         <property name="approvedDate">
+            <column name="approvedDate" not-null="true" />
+        </property>
+         <property name="declinedDate">
+            <column name="declinedDate"  not-null="true" />
+        </property>
+        
+        <property name="status">
+            <column name="status" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
