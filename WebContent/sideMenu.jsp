@@ -19,7 +19,7 @@
 								<ul class="list-unstyled" style="display: none;">
 									<li><a href="employees.html">All Employees</a></li>
 									<li><a href="holidays.html">Holidays</a></li>
-									<li><a href="leaves.html"><span>Leave Requests</span> <span class="badge bg-primary pull-right">1</span></a></li>
+									<li><a href="leaves.jsp"><span>Leave Requests</span> <span class="badge bg-primary pull-right">1</span></a></li>
 									<li><a href="attendance.html">Attendance</a></li>
 									<li><a href="departments.html">Departments</a></li>
 									<li><a href="designations.html">Designations</a></li>
