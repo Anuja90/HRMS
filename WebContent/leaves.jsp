@@ -44,7 +44,7 @@
                            <div class="col-sm-3 col-md-2 col-xs-6">  
 								<div class="form-group form-focus select-focus">
 									<label class="control-label">Leave Type</label>
-									<select class="select floating"> 
+									<select  class="select floating"> 
 										<option value=""> -- Select -- </option>
 										<option value="">Casual Leave</option>
 										<option value="1">Medical Leave</option>
@@ -758,19 +758,19 @@
 								<div class="form-group">
 									<label>Leave Type <span class="text-danger">*</span></label>
 									<select class="select" name="leaveTypeId">
-										<option value="1">Select Leave Type</option>
-										<option value="2">Casual Leave 12 Days</option>
-										<option value="3">Medical Leave</option>
-										<option value="4">Loss of Pay</option>
+										<option value="0">Select Leave Type</option>
+										<option value="1">Casual Leave 12 Days</option>
+										<option value="2">Medical Leave</option>
+										<option value="3">Loss of Pay</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<label>From <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" namd="fromDate" type="text"></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" name="fromDate" type="date"></div>
 								</div>
 								<div class="form-group">
 									<label>To <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" name="toDate" type="text"></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" name="toDate" type="date"></div>
 								</div>
 								<div class="form-group">
 									<label>Number of days <span class="text-danger">*</span></label>

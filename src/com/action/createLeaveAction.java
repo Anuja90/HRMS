@@ -14,19 +14,19 @@ public class createLeaveAction {
 	private int remainingLeaves;
 	private String leaveReason;
 
-	private String Execute()
+	public String execute()
 	{
+		System.out.println("fdhfdkfhdkhgfkgh");
 		Leave leave = new Leave();
 		leave.setLeaveTypeId(leaveTypeId);
 		leave.setFromDate(fromDate);
 		leave.setToDate(toDate);
-		calcDays();
+		System.out.println("jddddoooodddddgvj");
+		System.out.println(leaveTypeId);
+		System.out.println(fromDate);
+		System.out.println(toDate);
 		leave.setNoOfDays(noOfDays);
-		leave.setLeaveReason(leaveReason);
-	
-		LeaveManager.createLeave(leave);
-		
-		return "Success";
+		return "success";
 	}
 	
 	private void calcDays()
