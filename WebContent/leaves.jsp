@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html> 
+
     <head> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -28,7 +29,7 @@
                 <div class="content container-fluid">
 					<div class="row">
 						<div class="col-xs-8">
-							<h4 class="page-title">Leave Request</h4>
+							<h4 class="page-title">LeaveRequest</h4>
 						</div>
 						<div class="col-xs-4 text-right m-b-30">
 							<a href="#" class="btn btn-primary rounded pull-right" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Leave</a>
@@ -766,11 +767,15 @@
 								</div>
 								<div class="form-group">
 									<label>From <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" name="fromDate" type="date"></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" name="fromDate" type="date"/></div>
 								</div>
 								<div class="form-group">
 									<label>To <span class="text-danger">*</span></label>
 									<div class="cal-icon"><input class="form-control datetimepicker" name="toDate" type="date"></div>
+								</div>
+								<div class="form-group">
+									<label>Check <span class="text-danger">*</span></label>
+									<input class="form-control datetimepicker" name="check" type="date">
 								</div>
 								<div class="form-group">
 									<label>Number of days <span class="text-danger">*</span></label>
