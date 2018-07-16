@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import = "java.io.*,java.util.*, javax.servlet.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html> 
@@ -758,7 +759,7 @@
 							<form action = "createLeave">
 								<div class="form-group">
 									<label>Leave Type <span class="text-danger">*</span></label>
-									<select class="select" name="leaveTypeId">
+									<select class="select" onchange="cal()" name="leaveTypeId">
 										<option value="0">Select Leave Type</option>
 										<option value="1">Casual Leave 12 Days</option>
 										<option value="2">Medical Leave</option>
@@ -767,19 +768,34 @@
 								</div>
 								<div class="form-group">
 									<label>From <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" name="fromDate" type="date"/></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" data-date-format="MM/DD/YYYY" onblur="cal()" id="from" name="fromDate" type="date"/></div>
 								</div>
+								
+								
+								<script type="text/javascript">
+						function cal()
+						{
+						
+					var fromVal = new Date(document.getElementById("from").value);
+					var toVal = new Date(document.getElementById("to").value);
+					
+				  noOfDays =  ((toVal - fromVal)/(1000*60*60*24));
+				  if(!isNaN(noOfDays))
+						   document.getElementById("noOfDays").value =  noOfDays;
+						   
+						}
+						</script>
+						
+
+						
 								<div class="form-group">
 									<label>To <span class="text-danger">*</span></label>
-									<div class="cal-icon"><input class="form-control datetimepicker" name="toDate" type="date"></div>
+									<div class="cal-icon"><input class="form-control datetimepicker" data-date-format="MM/DD/YYYY" onblur="cal()" id="to" name="toDate" onchange="calDate(this,from);"  type="date" ></div>
 								</div>
-								<div class="form-group">
-									<label>Check <span class="text-danger">*</span></label>
-									<input class="form-control datetimepicker" name="check" type="date">
-								</div>
+							
 								<div class="form-group">
 									<label>Number of days <span class="text-danger">*</span></label>
-									<input class="form-control" name="noOfDays" readonly="" type="text">
+									<input class="form-control" id="noOfDays" name="noOfDays" readonly="" type="text">
 								</div>
 								<div class="form-group">
 									<label>Remaining Leaves <span class="text-danger">*</span></label>
