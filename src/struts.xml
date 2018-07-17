@@ -18,5 +18,11 @@
            <result name="success">/Welcome.jsp</result>
            <result name="input">/index.jsp</result>
         </action>
+        
+        <action name="showLeave" class="com.action.showLeaveAction">
+           <result name="success">/leaves.jsp</result>
+           <result name="input">/index.jsp</result>
+        </action>
+        
     </package>  
 </struts>

@@ -2,10 +2,11 @@ package com.action;
 
 import java.util.Date;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.persistence.Leave;
 import com.persistence.LeaveManager;
 
-public class createLeaveAction {
+public class createLeaveAction extends ActionSupport {
 
 	private long leaveTypeId;
 	private Date fromDate;
@@ -13,21 +14,39 @@ public class createLeaveAction {
 	private int noOfDays;
 	private int remainingLeaves;
 	private String leaveReason;
-	
+	private long empId;
+
+
 	public String execute()
 	{
 		System.out.println(fromDate);
 		System.out.println(toDate);
 		System.out.println(leaveReason);
 		System.out.println(leaveTypeId);
+		
+		Date date = new Date();
 		Leave leave = new Leave();
+		leave.setEmpId(empId);
 		leave.setLeaveTypeId(leaveTypeId);
 		leave.setFromDate(fromDate);
 		leave.setToDate(toDate);
 		leave.setNoOfDays(noOfDays);
+		leave.setRemainingLeaves(remainingLeaves);
+		leave.setLeaveReason(leaveReason);
+		leave.setSubmitDate(date);
+		leave.setStatus("Pending");
+		LeaveManager.createLeave(leave);
+		
 		return "success";
 	}
 	
+	public long getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(long empId) {
+		this.empId = empId;
+	}
 	public long getLeaveTypeId() {
 		return leaveTypeId;
 	}

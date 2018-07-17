@@ -10,14 +10,10 @@
         <id name="id" column="leave_id">
             <generator class="native" />
         </id>
- 		 <property name="empID">
+ 		 <property name="empId">
             <column name="emp_id" length="11" not-null="true" />
         </property>
-        <property name="leaveType">
-            <column name="leaveType_id" length="11" not-null="true" />
-        </property>
- 
-        <property name="EmpID)">
+        <property name="leaveTypeId">
             <column name="leaveType_id" length="11" not-null="true" />
         </property>
  
@@ -35,20 +31,20 @@
             <column name="remainingLeaves"  not-null="true" />
         </property>
         <property name="leaveReason">
-            <column name="LeaveReason" length="45" not-null="true" />
+            <column name="LeaveReason" length="45"  />
         </property>
          <property name="submitDate">
-            <column name="submitDate"  not-null="true" />
+            <column name="submitDate"   />
         </property>
          <property name="approvedDate">
-            <column name="approvedDate" not-null="true" />
+            <column name="approvedDate"  />
         </property>
          <property name="declinedDate">
-            <column name="declinedDate"  not-null="true" />
+            <column name="declinedDate"   />
         </property>
         
         <property name="status">
-            <column name="status" length="45" not-null="true" />
+            <column name="status" length="45"  />
         </property>
     </class>
 </hibernate-mapping>

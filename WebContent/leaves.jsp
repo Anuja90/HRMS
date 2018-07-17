@@ -36,11 +36,12 @@
 							<a href="#" class="btn btn-primary rounded pull-right" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Leave</a>
 						</div>
 					</div>
+					<form action="showLeave">
 					<div class="row filter-row">
                            <div class="col-sm-3 col-md-2 col-xs-6">  
 								<div class="form-group form-focus">
-									<label class="control-label">Employee Name</label>
-									<input type="text" class="form-control floating" />
+									<label class="control-label">Employee Id</label>
+									<input type="text" name="empId" class="form-control floating" />
 								</div>
                            </div>
                            <div class="col-sm-3 col-md-2 col-xs-6">  
@@ -78,9 +79,20 @@
 								</div>
 							</div>
                            <div class="col-sm-3 col-md-2 col-xs-6">  
-                                <a href="#" class="btn btn-success btn-block"> Search </a>  
+                                <button type="submit" class="btn btn-default">Search</button>  
                            </div>     
                     </div>
+                    </form>
+                    <s:iterator value="lesddfavelist">
+		<fieldset>
+			<table width="40%">
+				<tr><td><s:property value="empId"/></td></tr>
+				<tr><td><s:property value="fromDate"/></td></tr>
+			    <tr><td><s:property value="leaveReason"/></td></tr>
+			</table>
+		</fieldset>
+	</s:iterator>
+                    
 					<div class="row">
 						<div class="col-md-12">
 							<div class="table-responsive">
@@ -98,352 +110,24 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>
-												<a class="avatar">R</a>
-												<h2><a href="#">Richard Miles <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>8 Aug 2017</td>
-											<td>8 Aug 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-purple"></i> New <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">J</a>
-												<h2><a>	John Doe  <span>Web Designer</span></a></h2>
-											</td>
-											<td>Medical Leave</td>
-											<td>13 Jul 2017</td>
-											<td>15 Jul 2017</td>
-											<td>3 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-success"></i> Approved <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">J</a>
-												<h2><a>John Smith <span>Android Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>27 Jun 2017</td>
-											<td>28 Jun 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-success"></i> Approved <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">M</a>
-												<h2><a>Mike Litorus  <span>IOS Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>13 May 2017</td>
-											<td>13 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-danger"></i> Declined <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">R</a>
-												<h2><a>Richard Parker <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>31 Mar 2017</td>
-											<td>31 Mar 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-purple"></i> New <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">C</a>
-												<h2><a>Catherine Manseau <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-success"></i> Approved <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">B</a>
-												<h2><a>Buster Wigton <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-success"></i> Approved <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">M</a>
-												<h2><a>Melita Faucher <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-danger"></i> Declined <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">T</a>
-												<h2><a>Tarah Shropshire <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-purple"></i> New <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<a class="avatar">D</a>
-												<h2><a>Domenic Houston <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-success"></i> Approved <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
+									<s:iterator value="leavelist"> 
+                    	            <fieldset> 
 										<tr>
 											<td>
 												<a class="avatar">
 													<img src="assets/img/user.jpg" alt="John Doe">
 												</a>
-												<h2><a>John Doe <span>Web Designer</span></a></h2>
+												<h2><a><s:property value="empId"/><span>Web Designer</span></a></h2>
 											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
+											<td><s:property value="leaveTypeId"/></td>
+											<td><s:property value="fromDate"/></td>
+											<td><s:property value="toDate"/></td>
+											<td><s:property value="noOfDays"/></td>
+											<td><s:property value="leaveReason"/></td>
 											<td class="text-center">
 												<div class="dropdown action-label">
 													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-success"></i> Approved <i class="caret"></i>
+														<i class="fa fa-dot-circle-o text-success"></i><s:property value="status"/>  <i class="caret"></i>
 													</a>
 													<ul class="dropdown-menu pull-right">
 														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
@@ -463,45 +147,15 @@
 												</div>
 											</td>
 										</tr>
-										<tr>
-											<td>
-												<a class="avatar">R</a>
-												<h2><a>Rolland Webber <span>Web Developer</span></a></h2>
-											</td>
-											<td>Casual Leave</td>
-											<td>5 May 2017</td>
-											<td>6 May 2017</td>
-											<td>2 days</td>
-											<td>Going to Hospital</td>
-											<td class="text-center">
-												<div class="dropdown action-label">
-													<a class="btn btn-white btn-sm rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fa fa-dot-circle-o text-danger"></i> Declined <i class="caret"></i>
-													</a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#"><i class="fa fa-dot-circle-o text-purple"></i> New</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-info"></i> Pending</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-success"></i> Approved</a></li>
-														<li><a href="#"><i class="fa fa-dot-circle-o text-danger"></i> Declined</a></li>
-													</ul>
-												</div>
-											</td>
-											<td class="text-right">
-												<div class="dropdown">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-													<ul class="dropdown-menu pull-right">
-														<li><a href="#" title="Edit" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-														<li><a href="#" title="Decline" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li>
-													</ul>
-												</div>
-											</td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
                 </div>
+                </fieldset>  
+                </s:iterator>                	
 				<div class="notification-box">
 					<div class="msg-sidebar notifications msg-noti">
 						<div class="topnav-dropdown-header">
@@ -758,6 +412,10 @@
 						<div class="modal-body">
 							<form action = "createLeave">
 								<div class="form-group">
+								<div class="form-group">
+									<label>Employee ID <span class="text-danger">*</span></label>
+									<input class="form-control" name="empId" type="text">
+								</div>
 									<label>Leave Type <span class="text-danger">*</span></label>
 									<select class="select" onchange="cal()" name="leaveTypeId">
 										<option value="0">Select Leave Type</option>
