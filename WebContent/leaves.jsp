@@ -116,7 +116,7 @@
 												<a class="avatar">
 													<img src="assets/img/user.jpg" >
 												</a>
-												<h2><a><s:property value="empId"/><span>Web Designer</span></a></h2>
+												<h2><a><s:property value="empId"/></a></h2>
 												</td>
 												
 												<td><s:property value="leaveTypeId"/></td>
@@ -185,42 +185,8 @@
 					</div>
 				</div>
             </div>
-			<div id="delete_approve" class="modal custom-modal fade" role="dialog">
-				<div class="modal-dialog">
-					<div class="modal-content modal-md">
-						<div class="modal-header">
-							<h4 class="modal-title">Decline Leave Request</h4>
-						</div>
-						<form>
-							<div class="modal-body card-box">
-								<p>Are you sure want to declined this leave request?</p>
-								<div class="m-t-20 text-left">
-									<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-									<button type="submit" class="btn btn-danger">Decline</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div id="approve_leave" class="modal custom-modal fade" role="dialog">
-				<div class="modal-dialog">
-					<div class="modal-content modal-md">
-						<div class="modal-header">
-							<h4 class="modal-title">Approve for Leave</h4>
-						</div>
-						<form>
-							<div class="modal-body card-box">
-								<p>Are you sure want to approve for this leave request?</p>
-								<div class="m-t-20 text-left">
-									<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-									<button type="submit" class="btn btn-info">Approve</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+		
+			
 	
 			
 		<div class="sidebar-overlay" data-reff="#sidebar"></div>

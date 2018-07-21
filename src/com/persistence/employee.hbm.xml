@@ -15,7 +15,7 @@
 			<column name="emp_no" length="16" not-null="true" />
 		</property>
 
-		<property name="fistName">
+		<property name="firstName">
 			<column name="fistName" length="255" not-null="true" />
 		</property>
 

@@ -61,11 +61,10 @@ public class updateLeaveAction  extends ActionSupport {
 	}
 	public String selectToUpdate()
 	{
-		System.out.println("eeeeeeeeeeeeeeeeeeeeeeee");
+		
 		Leave leave = new Leave();
 		leave.setId(id);
 		LeaveManager.selectIDLeave(leave);
-		System.out.println("ttttttttttttttttt");
 		leavelist = (ArrayList)LeaveManager.selectIDLeave(leave);
 		
 		

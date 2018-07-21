@@ -55,15 +55,11 @@ public class LeaveManager {
 		
 		
 		String hql = "from 	Leave l where l.id=:id ";
-		System.out.println(leave.getId());
 		Query query = con.session.createQuery(hql);
 		
 		query.setParameter("id",leave.getId());
 		
 		ArrayList<Leave> list = (ArrayList<Leave>)query.list();
-		
-	
-		
 		return list;
 	}
 	public static List selectAllLeaves()
@@ -72,7 +68,6 @@ public class LeaveManager {
 		
 		
 		String hql = "from 	Leave  ";
-		
 		Query query = con.session.createQuery(hql);
 		
 		
@@ -81,28 +76,8 @@ public class LeaveManager {
 		
 
 	}
-	public static String getLeavesTaken(long eID)
-	{
-		ConnectionManager con = new ConnectionManager();
-		
-		
-		String hql = "select name from Person p where p.id=:empid ";
-		Query query = con.session.createQuery(hql);
-		query.setParameter("empid",eID);
-		
-		return (String)query.getSingleResult();
-	}
-/*	public static String getEmployeeName(long eID)
-	{
-		ConnectionManager con = new ConnectionManager();
-		
-		
-		String hql = "select name from Person p where p.id=:empid ";
-		Query query = con.session.createQuery(hql);
-		query.setParameter("empid",eID);
-		
-		return (String)query.getSingleResult();
-	}*/
+	
+
 	public static void updateLeave(Leave leave)
 	{
 		ConnectionManager con = new ConnectionManager();
@@ -134,17 +109,6 @@ public class LeaveManager {
 		query.executeUpdate();
 		
 		con.transaction.commit();
-
-		/*String hql = "update Leave l set leaveReason =:lr where l.id=:Lid";
-		Query query = con.session.createQuery(hql);
-		query.setParameter("lr","asd");
-		query.setParameter("Lid",1L);
-		query.executeUpdate();*/
-		
-	
-		
-		
-
 		
 	}
 	public static void deleteLeave(long id)
