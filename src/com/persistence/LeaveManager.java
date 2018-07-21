@@ -17,13 +17,28 @@ public class LeaveManager {
 		ConnectionManager con = new ConnectionManager();
 		con.session.save(leave);		
 		con.transaction.commit();
+		updateTaken(leave);
 	}
-	
+	public static void updateTaken(Leave leave)
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		String hql = "update Leave l set LeavesTaken =:lLeavesTaken where l.empId=:eID";
+		
+		Query query = con.session.createQuery(hql);
+		
+		query.setParameter("eID",leave.getEmpId());
+		query.setParameter("lLeavesTaken",leave.getLeavesTaken());
+		query.executeUpdate();
+		
+		con.transaction.commit();
+
+		
+	}
 	public static List selectALeave(Leave leave)
 	{
 		ConnectionManager con = new ConnectionManager();
 		
-		//System.out.println(employee.getId());
 		
 		String hql = "from 	Leave l where l.empId=:empid ";
 		
@@ -31,7 +46,34 @@ public class LeaveManager {
 		
 		query.setParameter("empid",leave.getEmpId());
 		
+		ArrayList<Leave> list = (ArrayList<Leave>)query.list();
+		return list;
+	}
+	public static List selectIDLeave(Leave leave)
+	{
+		ConnectionManager con = new ConnectionManager();
 		
+		
+		String hql = "from 	Leave l where l.id=:id ";
+		System.out.println(leave.getId());
+		Query query = con.session.createQuery(hql);
+		
+		query.setParameter("id",leave.getId());
+		
+		ArrayList<Leave> list = (ArrayList<Leave>)query.list();
+		
+	
+		
+		return list;
+	}
+	public static List selectAllLeaves()
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		
+		String hql = "from 	Leave  ";
+		
+		Query query = con.session.createQuery(hql);
 		
 		
 		ArrayList<Leave> list = (ArrayList<Leave>)query.list();
@@ -39,4 +81,83 @@ public class LeaveManager {
 		
 
 	}
+	public static String getLeavesTaken(long eID)
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		
+		String hql = "select name from Person p where p.id=:empid ";
+		Query query = con.session.createQuery(hql);
+		query.setParameter("empid",eID);
+		
+		return (String)query.getSingleResult();
+	}
+/*	public static String getEmployeeName(long eID)
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		
+		String hql = "select name from Person p where p.id=:empid ";
+		Query query = con.session.createQuery(hql);
+		query.setParameter("empid",eID);
+		
+		return (String)query.getSingleResult();
+	}*/
+	public static void updateLeave(Leave leave)
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		String hql = "update Leave l set leaveTypeId=:lleaveTypeId, fromDate=:lfromDate, toDate=:ltoDate, LeavesTaken=:lLeavesTaken, leaveReason =:lleaveReason where l.id=:ID";
+		
+		Query query = con.session.createQuery(hql);
+		
+		query.setParameter("lleaveTypeId",leave.getLeaveTypeId());
+		query.setParameter("lfromDate",leave.getFromDate());
+		query.setParameter("ltoDate",leave.getToDate());
+		query.setParameter("lLeavesTaken",leave.getLeavesTaken());
+		query.setParameter("lleaveReason",leave.getLeaveReason());
+		query.setParameter("ID",leave.getId());
+		query.executeUpdate();
+		
+		con.transaction.commit();
+	}
+	public static void updateStatus(Leave leave)
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		String hql = "update Leave l set status =:lstatus where l.id=:ID";
+		
+		Query query = con.session.createQuery(hql);
+		
+		query.setParameter("ID",leave.getId());
+		query.setParameter("lstatus",leave.getStatus());
+		query.executeUpdate();
+		
+		con.transaction.commit();
+
+		/*String hql = "update Leave l set leaveReason =:lr where l.id=:Lid";
+		Query query = con.session.createQuery(hql);
+		query.setParameter("lr","asd");
+		query.setParameter("Lid",1L);
+		query.executeUpdate();*/
+		
+	
+		
+		
+
+		
+	}
+	public static void deleteLeave(long id)
+	{
+		ConnectionManager con = new ConnectionManager();
+		
+		String hql = "DELETE FROM Leave WHERE id = :id";
+		Query query = con.session.createQuery(hql);
+
+		query.setParameter("id", id);
+		
+		query.executeUpdate();
+		con.transaction.commit();
+	}
+
 }

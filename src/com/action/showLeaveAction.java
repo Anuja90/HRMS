@@ -12,6 +12,7 @@ import com.persistence.PersonManager;
 public class showLeaveAction {
 
 	private long empId;
+	private long leaveId;
 	private long leaveTypeId;
 	private String status;
 	private Date fromDate;
@@ -22,20 +23,53 @@ public class showLeaveAction {
 	public String execute() 
 	{
 		Leave leave = new Leave();
+		String ret;
 		
 		leave.setEmpId(empId);
+		
 		leave.setLeaveTypeId(leaveTypeId);
 		leave.setStatus(status);
 		leave.setFromDate(fromDate);
 		leave.setToDate(toDate);
+		System.out.println("aaaaaaaaaaaaaaaaaaa");
 		
-		leavelist = (ArrayList)LeaveManager.selectALeave(leave);
+		
+		//leave.setEmpName(LeaveManager.getEmployeeName(empId));
+		
+		//System.out.println(leave.getEmpName());
 		
 		
-		return "success";
+		if(empId==0)
+		{
+			System.out.println("aaaaaaaaaaaaaaaaaaa");
+			ret = selectAll();
+		}
+		else 
+		{
+			
+			ret = selectOne(leave);
+		}
+		return ret;
 	}
 	
+	public long getLeaveId() {
+		return leaveId;
+	}
+
+	public void setLeaveId(long leaveId) {
+		this.leaveId = leaveId;
+	}
 	
+	public String selectOne(Leave leave)
+	{
+		leavelist = (ArrayList)LeaveManager.selectALeave(leave);
+		return "success";
+	}
+	public String selectAll()
+	{
+		leavelist = (ArrayList) LeaveManager.selectAllLeaves();
+		return "success";
+	}
 	public ArrayList getLeavelist() {
 		return leavelist;
 	}

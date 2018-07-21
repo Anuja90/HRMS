@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.persistence.Employee" table="tblEmployee">
+
+		<id name="emp_id" column="emp_id">
+			<generator class="native" />
+		</id>
+
+		<property name="emp_no">
+			<column name="emp_no" length="16" not-null="true" />
+		</property>
+
+		<property name="fistName">
+			<column name="fistName" length="255" not-null="true" />
+		</property>
+
+		<property name="lastName">
+			<column name="lastName" length="255" not-null="true" />
+		</property>
+
+		<property name="userName">
+			<column name="userName" length="255" not-null="true" />
+		</property>
+
+		<property name="email">
+			<column name="email" length="255" not-null="true" />
+		</property>
+
+		<property name="password">
+			<column name="password" length="255" not-null="true" />
+		</property>
+		
+		<property name="dateofBirth">
+			<column name="dateofBirth" length="16" not-null="true" />
+		</property>
+		
+		<property name="address">
+			<column name="address" length="255" not-null="true" />
+		</property>
+		
+		<property name="mobileno">
+			<column name="mobileno" length="10" not-null="true" />
+		</property>
+		
+		<property name="telephonno">
+			<column name="telephonno" length="10" not-null="true" />
+		</property>
+		
+		<property name="joiningDate">
+			<column name="joiningDate" length="16" not-null="true" />
+		</property>
+		
+		<property name="dep_id">
+			<column name="dep_id" length="16" not-null="true" />
+		</property>
+
+		<property name="desig_id">
+			<column name="desig_id" length="16" not-null="true" />
+		</property>
+		
+		<property name="lavel_id">
+			<column name="lavel_id" length="16" not-null="true" />
+		</property>
+		
+		<property name="createdate">
+			<column name="createdate" length="16" not-null="true" />
+		</property>
+
+
+	</class>
+</hibernate-mapping>

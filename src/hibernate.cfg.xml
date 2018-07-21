@@ -27,6 +27,6 @@
 		<mapping resource="com/persistence/salaryAllowance.hbm.xml" />
 		<mapping resource="com/persistence/salaryDeduction.hbm.xml" />
 		<mapping resource="com/persistence/leave.hbm.xml" />
-		
+		<mapping resource="com/persistence/Person.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

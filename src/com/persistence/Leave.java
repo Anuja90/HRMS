@@ -6,11 +6,18 @@ public class Leave {
 	
 	private long id;
 	private long empId;
+	private String empName;
+	public String getEmpName() {
+		return empName;
+	}
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
 	private long leaveTypeId;
 	private Date fromDate;
 	private Date toDate;
 	private int noOfDays;
-	private int remainingLeaves;
+	private int LeavesTaken;
 	private String leaveReason;
 	private Date submitDate;
 	private Date approvedDate;
@@ -53,11 +60,12 @@ public class Leave {
 	public void setNoOfDays(int noOfDays) {
 		this.noOfDays = noOfDays;
 	}
-	public int getRemainingLeaves() {
-		return remainingLeaves;
+
+	public int getLeavesTaken() {
+		return LeavesTaken;
 	}
-	public void setRemainingLeaves(int remainingLeaves) {
-		this.remainingLeaves = remainingLeaves;
+	public void setLeavesTaken(int leavesTaken) {
+		LeavesTaken = leavesTaken;
 	}
 	public String getLeaveReason() {
 		return leaveReason;

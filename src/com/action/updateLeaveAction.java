@@ -1,13 +1,16 @@
 package com.action;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.persistence.Leave;
 import com.persistence.LeaveManager;
 
-public class createLeaveAction extends ActionSupport {
+public class updateLeaveAction  extends ActionSupport {
 
+	private long id;
 	private long leaveTypeId;
 	private Date fromDate;
 	private Date toDate;
@@ -15,59 +18,77 @@ public class createLeaveAction extends ActionSupport {
 	private int LeavesTaken;
 	private String leaveReason;
 	private long empId;
-
-
+	private String status;
+	
+	private ArrayList leavelist = new ArrayList();
+	
 	public String execute()
 	{
-	
-		Date date = new Date();
 		Leave leave = new Leave();
+		
+		leave = setValues();
+		LeaveManager.updateStatus(leave);
+		return "success";
+	}
+	public Leave setValues()
+	{
+		Leave leave = new Leave();
+		Date date = new Date();
+		leave.setId(id);
 		leave.setEmpId(empId);
 		leave.setLeaveTypeId(leaveTypeId);
 		leave.setFromDate(fromDate);
 		leave.setToDate(toDate);
 		leave.setNoOfDays(noOfDays);
-		leave.setLeavesTaken(LeavesTaken+noOfDays);
+		leave.setLeavesTaken(LeavesTaken);
 		leave.setLeaveReason(leaveReason);
+		leave.setStatus(status);
 		leave.setSubmitDate(date);
-		leave.setStatus("Pending");
-		System.out.println(leaveTypeId);
+		return leave;
+	}
+	public String updateLeave()
+	{
+		Leave leave = new Leave();
+		leave = setValues();
 		
-		LeaveManager.createLeave(leave);
+		LeaveManager.updateLeave(leave);
+		return "success";
+	}
+	public String deleteLeave()
+	{
+		LeaveManager.deleteLeave(id);
+		return "success";
+	}
+	public String selectToUpdate()
+	{
+		System.out.println("eeeeeeeeeeeeeeeeeeeeeeee");
+		Leave leave = new Leave();
+		leave.setId(id);
+		LeaveManager.selectIDLeave(leave);
+		System.out.println("ttttttttttttttttt");
+		leavelist = (ArrayList)LeaveManager.selectIDLeave(leave);
+		
+		
 		
 		return "success";
 	}
-
-	@Override
-	public void validate() {
-		if (empId == 0 )
-	    {
-			addFieldError("empId","Please enter Employee Id !");
-	    }
-		if (leaveTypeId == 0)
-	    {
-			addFieldError("leaveTypeId","Select Leave type");
-	    }
-		if (fromDate == null)
-	    {
-			addFieldError("fromDate","Please select starting date !");
-	    }
-		if (toDate == null)
-	    {
-			addFieldError("toDate","Please select ending date !");
-	    }
-		if (leaveReason == null || leaveReason.trim().equals(""))
-	    {
-			addFieldError("leaveReason","Please enter leave reason !");
-	    }
-	}
-	public long getEmpId() {
-		return empId;
+	
+	public ArrayList getLeavelist() {
+		return leavelist;
 	}
 
-	public void setEmpId(long empId) {
-		this.empId = empId;
+	public void setLeavelist(ArrayList leavelist) {
+		this.leavelist = leavelist;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public long getLeaveTypeId() {
 		return leaveTypeId;
 	}
@@ -118,6 +139,28 @@ public class createLeaveAction extends ActionSupport {
 		this.leaveReason = leaveReason;
 	}
 
-	
-	
+	public long getEmpId() {
+		return empId;
 	}
+
+	public void setEmpId(long empId) {
+		this.empId = empId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	
+	
+
+
+
+	
+	
+}

@@ -27,8 +27,8 @@
         <property name="noOfDays">
             <column name="numberofDate"  not-null="true" />
         </property>
-        <property name="remainingLeaves">
-            <column name="remainingLeaves"  not-null="true" />
+        <property name="LeavesTaken">
+            <column name="LeavesTaken"  not-null="true" />
         </property>
         <property name="leaveReason">
             <column name="LeaveReason" length="45"  />

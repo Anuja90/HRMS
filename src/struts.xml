@@ -4,25 +4,62 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="default" extends="struts-default">
-        <action name="createEmployee" class="com.action.createEmployeeAction">
-           <result name="success">/Welcome.jsp</result>
-           <result name="input">/index.jsp</result>
-        </action>
-        
-        <action name="showEmployee" class="com.action.showEmployeeAction">
-           <result name="success">/ShowEmplyee.jsp</result>
-        </action>
-        
-        <action name="createLeave" class="com.action.createLeaveAction">
-           <result name="success">/Welcome.jsp</result>
-           <result name="input">/index.jsp</result>
-        </action>
-        
-        <action name="showLeave" class="com.action.showLeaveAction">
-           <result name="success">/leaves.jsp</result>
-           <result name="input">/index.jsp</result>
-        </action>
-        
-    </package>  
+
+	<constant name="struts.mapper.action.prefix.enabled"
+		value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+		
+	<package name="default" extends="struts-default">
+		<action name="createEmployee"
+			class="com.action.createEmployeeAction">
+			<result name="success">/Welcome.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+
+		<action name="showEmployee"
+			class="com.action.showEmployeeAction">
+			<result name="success">/ShowEmplyee.jsp</result>
+		</action>
+
+		<action name="createLeave" class="com.action.createLeaveAction">
+			<result name="success" type="redirectAction">displayAll
+			</result>
+			<result name="input">/addleave.jsp</result>
+		</action>
+		<action name="displayAll" method="execute"
+			class="com.action.showLeaveAction">
+			<result name="success">/leaves.jsp</result>
+			<result name="input">/addleave.jsp</result>
+		</action>
+		<action name="updateStatus" 
+			class="com.action.updateLeaveAction">
+			<result name="success" type="redirectAction">displayAll
+			</result>
+			<result name="input">/leaves.jsp</result>
+		</action>
+		<action name="updateLeave" method="updateLeave"
+			class="com.action.updateLeaveAction">
+			<result name="success" type="redirectAction">displayAll
+			</result>
+			<result name="input">/leaves.jsp</result>
+		</action>
+		<action name="selectToUpdate" method="selectToUpdate"
+			class="com.action.updateLeaveAction">
+			<result name="success">/updateLeave.jsp</result>
+			<result name="input">/leaves.jsp</result>
+		</action>
+		<action name="showLeave" class="com.action.showLeaveAction">
+			<result name="success">/leaves.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<action name="deleteLeave" method="deleteLeave"
+			class="com.action.updateLeaveAction">
+			<result name="success" type="redirectAction">displayAll
+			</result>
+			<result name="input">/leaves.jsp</result>
+		</action>
+
+
+	</package>
 </struts>
